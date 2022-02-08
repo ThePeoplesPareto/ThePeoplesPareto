@@ -1,7 +1,7 @@
 - 👋 Hi, I’m @ThePeoplesPareto
 - 👀 I’m interested in learning to make a website
 - 🌱 I’m currently learning HTML, CSS, Java(???)
--     I'm looking to collaborate on anything that will help me learn.
+- 🌱 I’m looking to collaborate on anything that will help me learn.
 - 📫 Feel free to email nexus@thepeoplespareto.com
 
 <!---
