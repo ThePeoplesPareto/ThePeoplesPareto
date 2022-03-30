@@ -1,0 +1,97 @@
+swagger: "2.0"
+info:
+  description: "This is a sample server of People's PAreto."
+  version: "1.0.0"
+  title: "People's Pareto"
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    email: "apiteam@swagger.io"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "peoplespareto.swagger.io"
+basePath: "/v1"
+schemes:
+- "https"
+- "http"
+paths:
+  /message:
+    post:
+      tags:
+      - "message"
+      summary: "Add a new message"
+      description: ""
+      operationId: "addMessage"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Message object that needs to be added to the store"
+        required: true
+        schema:
+          $ref: "#/definitions/Message"
+      responses:
+        "405":
+          description: "Invalid input"
+
+    get:
+      tags:
+      - "message"
+      summary: "Retrieves message"
+      description: ""
+      operationId: "getMessage"
+      produces:
+      - "application/xml"
+      - "application/json"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Message"
+        "400":
+          description: "Invalid status value"
+
+  
+
+definitions:
+  Message:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      message:
+        type: "string"
+      status:
+        type: "string"
+        description: "Order Status"
+        enum:
+        - "placed"
+        - "approved"
+        - "delivered"
+      complete:
+        type: "boolean"
+        default: false
+    xml:
+      name: "Order"
+  
+  ApiResponse:
+    type: "object"
+    properties:
+      code:
+        type: "integer"
+        format: "int32"
+      type:
+        type: "string"
+      message:
+        type: "string"
+externalDocs:
+  description: "Find out more about Swagger"
+  url: "http://swagger.io"
